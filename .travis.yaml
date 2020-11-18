@@ -10,7 +10,7 @@ before_install:
 	- curl https://sdk.cloud.google.com | bash > /dev/null;
 	- source $HOME/google-cloud-sdk/path.bash.inc
 	- gcloud components update kubectl
-	- gcloud auth activat e-service-account --key-file service-account.json
+	- gcloud auth activate-service-account --key-file service-account.json
 	- gcloud config set project kubernetes-project-294210
 	# to do add location after cluster creation video 283 section 16 , 3:11
 	- gcloud config set compute/zone us-central1-c
@@ -20,7 +20,7 @@ before_install:
   - docker build -t aartibhagtani/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true aartibhagtani/react-test npm test
+  - docker run -e CI=true aartibhagtani/react-test npm test -- --coverage
 
 deploy: 
   provider: script
