@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: postgres-deployment
 spec:
-  replicas:
+  replicas: 1
   selector:
     matchLabels:
       component: postgres
@@ -13,7 +13,7 @@ spec:
         component: postgres
     spec:
       volumes:
-        - name:  postgres-storage
+        - name: postgres-storage
           persistentVolumeClaim: 
             claimName: database-persistent-volume-claim
       containers:
