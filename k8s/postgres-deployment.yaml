@@ -13,7 +13,7 @@ spec:
         component: postgres
     spec:
       volumes:
-        - name:  postgres-storage
+        - name: postgres-storage
           persistentVolumeClaim: 
             claimName: database-persistent-volume-claim
       containers:
